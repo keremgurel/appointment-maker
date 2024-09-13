@@ -8,7 +8,7 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
   Define state variables for 
   appointment info
   */
-	const [title, setTitle] = useState('');
+	const [name, setName] = useState('');
 	const [contact, setContact] = useState('');
 	const [date, setDate] = useState('');
 	const [time, setTime] = useState('');
@@ -18,8 +18,8 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
 		/*
     Add contact info and clear data  
     */
-		addAppointment(title, contact, date, time);
-		setTitle('');
+		addAppointment(name, contact, date, time);
+		setName('');
 		setContact('');
 		setDate('');
 		setTime('');
@@ -27,12 +27,12 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
 
 	return (
 		<div>
-			<section>
+			<section className='form'>
 				<h2>Add Appointment</h2>
 				<AppointmentForm
 					contacts={contacts}
-					title={title}
-					setTitle={setTitle}
+					name={name}
+					setName={setName}
 					contact={contact}
 					setContact={setContact}
 					date={date}
@@ -43,9 +43,18 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
 				/>
 			</section>
 			<hr />
-			<section>
+			<section className='tile-list'>
 				<h2>Appointments</h2>
-				<TileList tiles={appointments} />
+				<TileList
+					tiles={appointments.map((appointment) => ({
+						name: appointment.name,
+						description: {
+							contact: appointment.contact,
+							date: appointment.date,
+							time: appointment.time,
+						},
+					}))}
+				/>
 			</section>
 		</div>
 	);

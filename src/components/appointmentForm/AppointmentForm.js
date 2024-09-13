@@ -20,7 +20,7 @@ export const AppointmentForm = ({
 	handleSubmit,
 }) => {
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className='form'>
 			<input
 				type='text'
 				name='title'

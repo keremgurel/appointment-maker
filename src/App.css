@@ -1,0 +1,199 @@
+:root {
+	--apple-black: #000000;
+	--apple-dark-gray: #1d1d1f;
+	--apple-medium-gray: #86868b;
+	--apple-light-gray: #f5f5f7;
+	--apple-blue: #0071e3;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
+		sans-serif;
+	background-color: var(--apple-black);
+	color: var(--apple-light-gray);
+}
+
+.container {
+	margin: 0 auto;
+	padding: 20px;
+}
+
+button {
+	background-color: var(--apple-blue);
+	border: none;
+	padding: 12px 24px;
+	border-radius: 980px;
+	color: var(--apple-light-gray);
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+	font-size: 16px;
+	font-weight: 500;
+	margin-top: 20px;
+	width: 100%;
+}
+
+button:hover {
+	background-color: #0077ed;
+	transform: scale(1.05);
+}
+
+input,
+select {
+	padding: 12px;
+	margin: 8px 0;
+	border: 1px solid var(--apple-medium-gray);
+	border-radius: 8px;
+	background-color: var(--apple-dark-gray);
+	color: var(--apple-light-gray);
+	font-size: 14px;
+}
+
+.tile {
+	background-color: rgba(255, 255, 255, 0.08);
+	padding: 16px;
+	margin: 12px 0;
+	border-radius: 12px;
+	transition: background-color 0.3s ease;
+}
+
+.tile:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+.form {
+	background-color: rgba(255, 255, 255, 0.05);
+	color: var(--apple-light-gray);
+	padding: 24px;
+	border-radius: 18px;
+	margin-bottom: 32px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 300px;
+}
+
+.form input[type='date']::-webkit-calendar-picker-indicator,
+.form input[type='time']::-webkit-time-picker-indicator {
+	filter: invert(1);
+}
+
+.form input,
+.form select {
+	width: 100%;
+	max-width: 600px;
+	margin-bottom: 15px;
+}
+
+.tile-list {
+	background-color: rgba(255, 255, 255, 0.05);
+	padding: 24px;
+	border-radius: 18px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+	color: var(--apple-light-gray);
+	font-weight: 600;
+}
+
+h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tile-title {
+	color: var(--apple-light-gray);
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.tile-description {
+	color: var(--apple-medium-gray);
+	font-size: 14px;
+}
+
+nav {
+	background-color: rgba(29, 29, 31, 0.72);
+	backdrop-filter: saturate(180%) blur(20px);
+	padding: 16px 0;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+nav a {
+	color: var(--apple-light-gray);
+	text-decoration: none;
+	padding: 8px 16px;
+	margin: 0 8px;
+	border-radius: 980px;
+	transition: background-color 0.3s;
+	font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+::placeholder {
+	color: var(--apple-medium-gray);
+}
+
+input:focus,
+select:focus {
+	outline: none;
+	border-color: var(--apple-blue);
+}
+
+/* Navbar styles */
+.navbar {
+	background-color: rgba(22, 22, 23, 0.8);
+	backdrop-filter: saturate(180%) blur(20px);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	padding: 5px 20px;
+	z-index: 1000;
+}
+
+.navbar-logo {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.navbar-links {
+	display: flex;
+	margin-left: auto;
+}
+
+.navbar-link {
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+	padding: 8px 16px;
+	margin: 0 8px;
+	font-size: 16px;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+	color: #fff;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Adjust main content to account for taller navbar */
+.main-content {
+	padding-top: 84px; /* 64px navbar height + 20px extra padding */
+}

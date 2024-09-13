@@ -32,20 +32,13 @@ export const ContactsPage = ({ contacts, addContact }) => {
   contacts array variable in props
   */
 	useEffect(() => {
-		const nameCheck = () => {
-			const isFound = contacts.some((contact) => contact.name === name);
-			if (isFound) {
-				setDuplicate(true);
-			} else {
-				setDuplicate(false);
-			}
-		};
-		nameCheck();
+		const nameIsDuplicate = contacts.some((contact) => contact.name === name);
+		setDuplicate(nameIsDuplicate);
 	}, [name, contacts]);
 
 	return (
 		<div>
-			<section>
+			<section className='form'>
 				<h2>Add Contact</h2>
 				<ContactForm
 					name={name}
@@ -58,9 +51,17 @@ export const ContactsPage = ({ contacts, addContact }) => {
 				/>
 			</section>
 			<hr />
-			<section>
+			<section className='tile-list'>
 				<h2>Contacts</h2>
-				<TileList tiles={contacts} />
+				<TileList
+					tiles={contacts.map((contact) => ({
+						name: contact.name,
+						description: {
+							phone: contact.phone,
+							email: contact.email,
+						},
+					}))}
+				/>
 			</section>
 		</div>
 	);
